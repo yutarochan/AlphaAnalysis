@@ -10,6 +10,9 @@ public class Alpha {
 	
 	public Alpha() {
 		
+		/*
+		 * TODO: Reevaluate design patterns on using REST instead of the SOAP protocol.
+		 */
 		try {
 		} catch (Exception e) {
 		}
