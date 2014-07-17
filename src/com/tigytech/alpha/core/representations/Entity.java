@@ -149,9 +149,116 @@ public class Entity extends Observable implements Serializable, Frame {
 	public ArrayList<Object> getFeatures() {
 		return null;
 	}
-	
-	private String getType() {
-		// TODO Auto-generated method stub
+
+	/** TODO: Configure bundle settings */
+	public Bundle getBundle() {
+		return this.bundle;
+	}
+
+	public void setBundle(Bundle b) {
+		if (this.bundle == b) return;
+		saveState();
+
+		if (this.bundle != null)
+			this.bundle.setOwnerThingNull();
+		this.bundle = b;
+		if (this.bundle != null)
+			this.bundle.setOwnerThing(this);
+		fireNotification();
+	}
+	/** End TODO */
+
+	public void addThread(Thread t) {
+		this.bundle.addThread(t);
+	}
+
+	public void replacePrimedThread(Thread t) {
+		if (this.bundle.size() != 0) 
+			this.bundle.remove(0);
+		this.bundle.add(0, t);
+	}
+
+	public Thread getPrimedThread() {
+		return getBundle().getPrimedThread();
+	}
+
+	public void setPrimedThread(Thread t) {
+		replacePrimedThread(t);
+	}
+
+	public Thread getThread(String firstElement) {
+		return this.bundle.getThread(element);
+	}
+
+	public Thread getThreadWith(String element) {
+		for (Thread t : getBundle())
+			if (t.contains(element)) return t;
 		return null;
+	}
+
+	public Thread getThreadWith(String first, String last) {
+		for (Thread t : getBundle())
+			if ((((String)t.firstElement()).equals(first)) 
+				&& (((String)t.lastElement()).equals(last)))
+				return t;
+		return null;
+	}
+
+	public void swapPrimedThread() {
+		getBundle().swapPrimedThread();
+	}
+
+	public void pushPrimedThread() {
+		getBundle().pushPrimedThread();
+	}
+
+	public void sendPrimedThreadToEnd() {
+		getBundle().sendPrimedThreadToEnd();
+	}
+
+	public String getType() {
+		return this.bundle.getType();
+	}
+
+	public String getSuperType() {
+		return this.bundle.getSuperType();
+	}
+
+	public void addType(String t) {
+		Thread thread = getPrimedThread();
+		thread.addType(t);
+	}
+
+	public void addDeterminer(String t) {
+		addType(t, "determiner");
+	}
+
+	/** Confirm Functionality */
+	public Thread getDeterminer() {
+		for (Thread t : this.bundle)
+			if (t.contains("determiner")) return t;
+		return null;
+	}
+
+	/** Confirm Functionality */
+	public void addType(String type, String threadType) {
+		for (Thread t : this.bundle) {
+			if ((thread != null) && (thread.contains(threadType))) {
+				thread.addType(type);
+				return;
+			}
+		}
+		Thread t = new Thread();
+		thread.addType(ThreadType);
+		thread.addType(type);
+		this.bundle.addThread(thread);
+	}
+
+	public void addType(Strng t, String[] ok) {
+		if (StringUtils.testType(t, ok)) addType(t);
+		else System.err.println("[ENTITY - ERROR] Tried to add wrong type " + t);
+	}
+
+	public void addTypes(Vector v) {
 	}
 }
