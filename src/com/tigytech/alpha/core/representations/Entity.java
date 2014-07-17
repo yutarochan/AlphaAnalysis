@@ -2,8 +2,11 @@ package com.tigytech.alpha.core.representations;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Vector;
+
+import com.tigytech.alpha.core.utilities.StringUtils;
 
 public class Entity extends Observable implements Serializable, Frame {
 
@@ -259,6 +262,161 @@ public class Entity extends Observable implements Serializable, Frame {
 		else System.err.println("[ENTITY - ERROR] Tried to add wrong type " + t);
 	}
 
-	public void addTypes(Vector v) {
+	public void addTypes(Vector<?> v) {
+		getBundle().pushPrimedThread();
+		for (Object o : v) {
+			if (o instanceof String) addType((String)o);
+			else System.err.println("[ENTITY - ERROR] Tried to add type of non-string.");
+		}
+	}
+
+	@Override
+	public boolean entityP() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean entityP(String paramString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean functionP() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean functionP(String paramString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean relationP() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean relationP(String paramString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean sequenceP() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean sequenceP(String paramString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isA(String paramString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAllOf(String[] paramArrayOfString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isNoneOf(String[] paramArrayOfString) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setSubject(Entity paramEntity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Entity getSubject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setObject(Entity paramEntity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Entity getObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addElement(Entity paramEntity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Vector<Entity> getElements() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Entity getElement(int paramInt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Entity> getAllComponents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Vector<Entity> getModifiers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addModifier(Entity paramEntity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addModifier(int paramInt, Entity paramEntity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setModifiers(Vector<Entity> paramVector) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clearModifiers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public char getPrettyPrintType() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
