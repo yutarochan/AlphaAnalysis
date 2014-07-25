@@ -1,19 +1,21 @@
 package com.tigytech.alpha;
 
+import com.tigytech.alpha.util.ConsoleFlags;
+
 public class Alpha {
 	
-	public static void main(String[] args) {
-		// TODO: Append configuration file handlers, load server parameters separately.
-		Alpha alpha = new Alpha();
+	public Alpha() {
+		// Application Bootstrap:
+		// 1. Load Initial Application Configuration Files x
+		// 2. Load Initial Core Files & Libraries
+		// 3. Setup initial system environment and parameters.
+		// 4. Build Corpus and Cognitive Models
+		// 5. Initialize and launch sockets.
+		// 6. Loading complete!
 	}
 	
-	public Alpha() {
-		
-		/*
-		 * TODO: Reevaluate design patterns on using REST instead of the SOAP protocol.
-		 */
-		try {
-		} catch (Exception e) {
-		}
+	public static void main(String[] args) {
+		ConsoleFlags.checkConsoleFlags(args);
 	}
+	
 }
