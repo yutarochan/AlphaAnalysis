@@ -1,5 +1,6 @@
 package com.tigytech.alpha.core.representations;
 
+<<<<<<< HEAD
 import java.util.Collection;
 import java.util.Vector;
 
@@ -252,4 +253,7 @@ public class Thread extends Vector<String> {
 		
 		System.out.println(t.toString());
 	}
+=======
+public class Thread {
+>>>>>>> 9801b1f60621fe5da91470e7b7346ab5f3a8ae9e
 }
