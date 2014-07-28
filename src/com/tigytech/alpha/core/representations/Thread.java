@@ -11,6 +11,8 @@ import java.util.Vector;
  */
 public class Thread extends Vector<String> {
 	
+	private Bundle parentBundle = null;
+	
 	/**
 	 * Creates a new instance of a Thread object.
 	 */
@@ -226,6 +228,10 @@ public class Thread extends Vector<String> {
 		return data;
 	}
 	
+	public Thread copyThread() {
+		return (Thread) clone();
+	}
+	
 	public boolean equals(Thread t) {
 		if (size() != t.size()) return false;
 		for (int i = 0; i < size(); i++) {
@@ -235,6 +241,9 @@ public class Thread extends Vector<String> {
 		return true;
 	}
 	
+	/**
+	 * Unit Test Module
+	 */
 	public static void main(String[] args) {
 		Thread t = new Thread("Entity");
 		Thread t2 = new Thread(t);
